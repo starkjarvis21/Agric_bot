@@ -51,7 +51,6 @@ intent_label_map = {
 
 # Fit the LabelEncoder with intent labels
 label_encoder = LabelEncoder()
-label_encoder.classes_ = np.load('intent_label_encoder_classes.npy')
 
 st.title("Agriculture Chatbot")
 
