@@ -43,6 +43,9 @@ with open('data-tags.csv') as csv_file:
 
 USER_INTENT = ""
 
+label_encoder = LabelEncoder()
+label_encoder.classes_ = np.load('intent_label_encoder_classes.npy')
+
 st.title("Agriculture Chatbot")
 
 user_query = st.text_input("User Query")
@@ -66,7 +69,6 @@ if user_query:
     # Make the prediction
     predicted_Intent = loadedIntentClassifier.predict(processed_text)
     result = np.argmax(predicted_Intent, axis=1)
-    labelencoder_intent = LabelEncoder()
     intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
 
     for key, value in intent_label_map.items():
