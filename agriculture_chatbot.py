@@ -42,7 +42,14 @@ with open('data-tags.csv') as csv_file:
     entity_label_map = dict(zip(dataset['label'], dataset['word']))
 
 USER_INTENT = ""
+intent_label_map = {
+    0: 'intent_1',
+    1: 'intent_2',
+    2: 'intent_3',
+    # Add more intent labels here as per your model
+}
 
+# Fit the LabelEncoder with intent labels
 label_encoder = LabelEncoder()
 label_encoder.classes_ = np.load('intent_label_encoder_classes.npy')
 
@@ -69,10 +76,9 @@ if user_query:
     # Make the prediction
     predicted_Intent = loadedIntentClassifier.predict(processed_text)
     result = np.argmax(predicted_Intent, axis=1)
-    intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
 
     for key, value in intent_label_map.items():
-        if value == result[0]:
+        if value == label_encoder.inverse_transform(result)[0]:
             USER_INTENT = key
             break
 
