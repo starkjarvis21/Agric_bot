@@ -3,7 +3,7 @@ import json
 import pandas as pd
 import numpy as np
 from tensorflow.keras.models import load_model
-from sklearn.externals import joblib
+import joblib
 import re
 from nltk.stem import PorterStemmer
 import random
