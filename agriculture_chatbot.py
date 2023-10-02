@@ -7,6 +7,21 @@ import joblib
 import re
 from nltk.stem import PorterStemmer
 import random
+import pickle as pk
+
+from numpy import array
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import confusion_matrix
+from sklearn.naive_bayes import GaussianNB
+from nltk.stem.porter import PorterStemmer
+from sklearn.model_selection import train_test_split
+from keras.utils import to_categorical
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.models import load_model
+import tensorflow
+from tensorflow.python.keras.utils import np_utils
 
 # Load the intents data from JSON
 with open('intents.json') as json_data:
