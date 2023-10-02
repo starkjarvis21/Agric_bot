@@ -51,7 +51,7 @@ if user_query:
     # Make the prediction
     predicted_Intent = loadedIntentClassifier.predict(processed_text)
     result = np.argmax(predicted_Intent, axis=1)
-
+    labelencoder_intent = LabelEncoder()
     intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
 
     for key, value in intent_label_map.items():
