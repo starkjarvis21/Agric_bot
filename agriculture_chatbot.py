@@ -25,7 +25,7 @@ labelencoder_intent = LabelEncoder()
 # Load Intent Label Map and Intents JSON
 with open('intents.json') as json_data:
     intents = json.load(json_data)
-intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
+intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent}
 
 st.title("Agriculture Chatbot")
 
