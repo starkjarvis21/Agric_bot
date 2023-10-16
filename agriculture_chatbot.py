@@ -6,6 +6,7 @@ import json
 import random
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
+from keras.utils import to_categorical
 from sklearn.preprocessing import LabelEncoder
 from keras.models import load_model
 import joblib
