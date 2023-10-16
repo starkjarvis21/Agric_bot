@@ -20,6 +20,7 @@ loadedEntityCV = pk.load(open('EntityCountVectorizer.sav', 'rb'))
 loadedEntityClassifier = joblib.load(open('entity_model.sav', 'rb'))
 
 labelencoder_intent = LabelEncoder()
+y = to_categorical(labelencoder_intent.fit_transform(y))
 
 # Load Intent Label Map and Intents JSON
 with open('intents.json') as json_data:
