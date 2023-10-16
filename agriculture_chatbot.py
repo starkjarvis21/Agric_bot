@@ -41,7 +41,7 @@ def getEntities(query):
     return entity_list
 
 # Define the Streamlit app
-user_query = st.text_input("You: ")
+user_query = st.text_input("Hello! How May I Assist You Today? ")
 
 if st.button("Ask"):
     query = re.sub('[^a-zA-Z]', ' ', user_query).split(' ')
