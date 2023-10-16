@@ -15,6 +15,9 @@ import joblib
 # Title for your Streamlit app
 st.title("Agriculture Chatbot")
 
+dataset = pd.read_csv('intent.csv', names=["Intent"])
+y = dataset["Intent"]
+
 # Load the intent model and CountVectorizer
 loadedIntentClassifier = load_model('intent_model.h5')
 loaded_intent_CV = joblib.load('IntentCountVectorizer.sav')
