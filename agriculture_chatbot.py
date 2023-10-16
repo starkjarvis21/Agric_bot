@@ -17,6 +17,9 @@ st.title("Agriculture Chatbot")
 loadedIntentClassifier = load_model('intent_model.h5')
 loaded_intent_CV = joblib.load('IntentCountVectorizer.sav')
 
+intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
+
+
 # Load entity CountVectorizer and classifier
 loadedEntityCV = pk.load(open('EntityCountVectorizer.sav', 'rb'))
 loadedEntityClassifier = joblib.load(open('entity_model.sav', 'rb'))
