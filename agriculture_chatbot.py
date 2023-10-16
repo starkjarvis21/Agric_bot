@@ -12,15 +12,15 @@ import joblib
 
 
 # Load Intent Model
-loadedIntentClassifier = load_model('/content/drive/MyDrive/Agric_Chatbot/intent_model.h5')
-loaded_intent_CV = joblib.load('/content/drive/MyDrive/Agric_Chatbot/IntentCountVectorizer.sav')
+loadedIntentClassifier = load_model('intent_model.h5')
+loaded_intent_CV = joblib.load('IntentCountVectorizer.sav')
 
 # Load Entity Model
-loadedEntityCV = pk.load(open('/content/drive/MyDrive/Agric_Chatbot/EntityCountVectorizer.sav', 'rb'))
-loadedEntityClassifier = joblib.load(open('/content/drive/MyDrive/Agric_Chatbot/entity_model.sav', 'rb'))
+loadedEntityCV = pk.load(open('EntityCountVectorizer.sav', 'rb'))
+loadedEntityClassifier = joblib.load(open('entity_model.sav', 'rb'))
 
 # Load Intent Label Map and Intents JSON
-with open('/content/drive/MyDrive/Agric_Chatbot/intents.json') as json_data:
+with open('intents.json') as json_data:
     intents = json.load(json_data)
 intent_label_map = ...  # Define intent_label_map here
 
