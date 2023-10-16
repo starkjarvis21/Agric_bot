@@ -13,6 +13,8 @@ import joblib
 
 st.title("Agriculture Chatbot")
 
+ y = dataset["Intent"]
+
 # Load the intent model and CountVectorizer
 loadedIntentClassifier = load_model('intent_model.h5')
 loaded_intent_CV = joblib.load('IntentCountVectorizer.sav')
@@ -20,6 +22,11 @@ loaded_intent_CV = joblib.load('IntentCountVectorizer.sav')
 # Load entity CountVectorizer and classifier
 loadedEntityCV = pk.load(open('EntityCountVectorizer.sav', 'rb'))
 loadedEntityClassifier = joblib.load(open('entity_model.sav', 'rb'))
+
+labelencoder_intent = LabelEncoder()
+y = to_categorical(labelencoder_intent.fit_transform(y))
+
+intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
 
 # Load intents.json
 with open('intents.json') as json_data:
