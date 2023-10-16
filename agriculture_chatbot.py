@@ -52,5 +52,3 @@ if st.button("Ask"):
     entities = getEntities(tokenized_query)
     token_entity_map = dict(zip(entities, tokenized_query))
     # Display entities or other information as needed
-
-streamlit run app.py
