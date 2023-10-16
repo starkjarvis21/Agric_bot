@@ -30,7 +30,7 @@ with open('intents.json') as json_data:
 labelencoder_intent = LabelEncoder()
 #y = to_categorical(labelencoder_intent.fit_transform(y))
 
-intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
+#intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
 
 def getEntities(query):
     query = loadedEntityCV.transform(query).toarray()
