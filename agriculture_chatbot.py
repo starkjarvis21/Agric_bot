@@ -18,7 +18,11 @@ loadedIntentClassifier = load_model('intent_model.h5')
 loaded_intent_CV = joblib.load('IntentCountVectorizer.sav')
 
 labelencoder_intent = LabelEncoder()
-intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
+y = labelencoder_intent.fit_transform(y)
+intent_label_map = dict(zip(labelencoder_intent.classes_, y))
+
+
+
 
 
 # Load entity CountVectorizer and classifier
