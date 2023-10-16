@@ -20,10 +20,10 @@ y = dataset["Intent"]
 
 # Load the intent model and CountVectorizer
 loadedIntentClassifier = load_model('intent_model.h5')
-loaded_intent_CV = joblib.load('IntentCountVectorizer.sav')
+loaded_intent_CV = joblib.load('ICV.sav')
 
 # Load entity CountVectorizer and classifier
-loadedEntityCV = pk.load(open('EntityCountVectorizer.sav', 'rb'))
+loadedEntityCV = pk.load(open('ECV.sav', 'rb'))
 loadedEntityClassifier = joblib.load(open('entity_model.sav', 'rb'))
 
 # Load intents.json
@@ -72,8 +72,6 @@ if st.button("Ask"):
 
     entities = getEntities(tokenized_query)
     token_entity_map = dict(zip(entities, tokenized_query))
-
-    # Display the chatbot's response
     st.write(f"Bot: {response}")
 
 
