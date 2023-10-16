@@ -31,9 +31,9 @@ if st.button("Ask"):
     # Handle user query and display responses here
     # You can use the existing code for processing queries and generating responses.
     if user_query:
-    query = re.sub('[^a-zA-Z]', ' ', user_query).split(' ')
-    ps = PorterStemmer()
-    tokenized_query = [ps.stem(word.lower()) for word in query]
+        query = re.sub('[^a-zA-Z]', ' ', user_query).split(' ')
+        ps = PorterStemmer()
+        tokenized_query = [ps.stem(word.lower()) for word in query]
 
     processed_text = loaded_intent_CV.transform([' '.join(tokenized_query)]).toarray()
     predicted_Intent = loadedIntentClassifier.predict(processed_text)
