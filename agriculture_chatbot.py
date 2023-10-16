@@ -40,6 +40,9 @@ def getEntities(query):
     entity_list = [list(entity_label_map.keys())[list(entity_label_map.values()).index(tag)] for tag in response_tags if tag in entity_label_map.values()]
     return entity_list
 
+USER_INTENT = ""
+entity_label_map = {} 
+
 # Define the Streamlit app
 user_query = st.text_input("Hello! How May I Assist You Today? ")
 
