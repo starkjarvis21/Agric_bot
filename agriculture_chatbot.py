@@ -13,7 +13,7 @@ import joblib
 
 st.title("Agriculture Chatbot")
 
- y = dataset["Intent"]
+y = dataset["Intent"]
 
 # Load the intent model and CountVectorizer
 loadedIntentClassifier = load_model('intent_model.h5')
