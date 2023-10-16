@@ -44,10 +44,10 @@ def getEntities(query):
 
 # Initialize variables
 USER_INTENT = ""
-entity_label_map = {}  # Define or load this as needed
+entity_label_map = {}
 
 # User input field
-user_query = st.text_input("You: ")
+user_query = st.text_input("Hello! How May I Be Of Assistance? ")
 
 # Button to ask the chatbot
 if st.button("Ask"):
@@ -76,4 +76,4 @@ if st.button("Ask"):
     # Display the chatbot's response
     st.write(f"Bot: {response}")
 
-# Additional Streamlit configurations and UI elements can be added as needed
+
