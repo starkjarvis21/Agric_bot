@@ -26,6 +26,12 @@ loadedEntityClassifier = joblib.load(open('entity_model.sav', 'rb'))
 with open('intents.json') as json_data:
     intents = json.load(json_data)
 
+
+labelencoder_intent = LabelEncoder()
+#y = to_categorical(labelencoder_intent.fit_transform(y))
+
+intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelencoder_intent.classes_}
+
 def getEntities(query):
     query = loadedEntityCV.transform(query).toarray()
     response_tags = loadedEntityClassifier.predict(query)
