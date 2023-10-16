@@ -21,7 +21,6 @@ loadedEntityCV = pk.load(open('EntityCountVectorizer.sav', 'rb'))
 loadedEntityClassifier = joblib.load(open('entity_model.sav', 'rb'))
 
 labelencoder_intent = LabelEncoder()
-y = to_categorical(labelencoder_intent.fit_transform(y))
 
 # Load Intent Label Map and Intents JSON
 with open('intents.json') as json_data:
@@ -30,7 +29,7 @@ intent_label_map = {cl: labelencoder_intent.transform([cl])[0] for cl in labelen
 
 st.title("Agriculture Chatbot")
 
-user_query = st.text_input("Enter your query:")
+user_query = st.text_input("Hello! How May I Help You Today? ")
 if st.button("Ask"):
     # Handle user query and display responses here
     # You can use the existing code for processing queries and generating responses.
