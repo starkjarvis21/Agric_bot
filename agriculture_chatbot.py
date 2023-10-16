@@ -13,6 +13,7 @@ import joblib
 
 st.title("Agriculture Chatbot")
 
+dataset = pd.read_csv('intent.csv', names=["Intent"])
 y = dataset["Intent"]
 
 # Load the intent model and CountVectorizer
